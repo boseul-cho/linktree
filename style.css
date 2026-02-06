@@ -21,6 +21,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    padding-bottom: 32px;
 }
 
 #profilePicture, #profilePicture img {
@@ -45,38 +46,34 @@ body {
     text-decoration: none;
 }
 
-#feed {
-    color: var(--accentColor);
-    font-size: 1rem;
-    font-weight: bold;
-    line-height: 1.25;
-    display: block;
-    font-family: var(--font);
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
+.section-title {
+  color: var(--accentColor);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 18px 0 10px;
+  opacity: 0.9;
 }
 
 #disclaimer {
-    color: rgba(255, 255, 255, 0.55);   /* 기존보다 연한 색 */
-    font-size: 0.75rem;                 /* 살짝 작게 */
-    font-weight: 400;                   /* bold 제거 */
-    line-height: 1.4;
-    display: block;
-    font-family: var(--font);
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 18px;
-    opacity: 0.7;                       /* 전체 톤다운 */
+  margin: 22px auto 0;
+  padding-top: 14px;
+  max-width: 675px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  opacity: 0.75;
 }
 
-
-#links {
-    max-width: 675px;
-    width: auto;
-    display: block;
-    margin: 27px auto;
+.links {
+  max-width: 675px;
+  margin: 14px auto 22px;
+  padding: 14px 12px;      /* 터치감 ↑ */
+  line-height: 1.2;
+  word-break: keep-all;     /* 한국어 줄바꿈 더 자연스럽게 */
 }
 
 .link {
