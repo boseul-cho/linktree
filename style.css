@@ -302,8 +302,9 @@ body {
 
 .logo-links {
   max-width: 675px;
-  margin: 20px auto 26px;
+  margin: 0px auto 26px;
   padding: 0 10px;
+  line-height: 0;  
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -326,13 +327,13 @@ body {
 }
 
 .logo-links img {
-  height: 32px;   /* 로고 크기 */
+  height: 20px;   /* 로고 크기 */
   max-width: 100%;
   object-fit: contain;
 }
 
 .logo-links img.ozip-logo {
-  height: 48px;
+  height: 28px;
 }
 
 @media (hover:hover) {
