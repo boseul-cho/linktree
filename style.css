@@ -45,6 +45,18 @@ body {
     text-decoration: none;
 }
 
+#feed {
+    color: var(--accentColor);
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.25;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
 #links {
     max-width: 675px;
     width: auto;
