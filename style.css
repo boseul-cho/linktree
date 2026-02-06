@@ -57,6 +57,21 @@ body {
     text-decoration: none;
 }
 
+#disclaimer {
+    color: rgba(255, 255, 255, 0.55);   /* 기존보다 연한 색 */
+    font-size: 0.75rem;                 /* 살짝 작게 */
+    font-weight: 400;                   /* bold 제거 */
+    line-height: 1.4;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 18px;
+    opacity: 0.7;                       /* 전체 톤다운 */
+}
+
+
 #links {
     max-width: 675px;
     width: auto;
