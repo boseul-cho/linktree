@@ -1,60 +1,68 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 :root {
-    --bgColor: #223344;
-    --bgColor2: #090a0f;
-    --accentColor: #FFF;
-    --font: 'Karla', sans-serif;
-    --delay: .3s;
+  --bgColor: #223344;
+  --bgColor2: #090a0f;
+  --accentColor: #FFF;
+  --font: 'Karla', sans-serif;
+  --delay: .3s;
+
+  --cardBg: rgba(255, 255, 255, 0.06);
+  --cardBorder: rgba(255, 255, 255, 0.16);
+  --cardHover: rgba(255, 255, 255, 0.1);
+  --thumbBg: rgba(255, 255, 255, 0.08);
+  --muted: rgba(255, 255, 255, 0.65);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: var(--font);
-    background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
-    /* background-image: url('https://bit.ly/3nFVqJh'); */
-    opacity: 0;
-    animation: 1s ease-out var(--delay) 1 transitionAnimation; /* duration/timing-function/delay/iterations/name */
-    animation-fill-mode: forwards;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    padding-bottom: 32px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
+  opacity: 0;
+  animation: 1s ease-out var(--delay) 1 transitionAnimation;
+  animation-fill-mode: forwards;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-bottom: 32px;
 }
 
-#profilePicture, #profilePicture img {
-    position: relative;
-    width: 96px;
-    height: 96px;
-    display: block;
-    margin: 40px auto 20px;
-    border-radius: 50%;
-    -webkit-tap-highlight-color: transparent;
+#profilePicture,
+#profilePicture img {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: block;
+  margin: 40px auto 20px;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #userName {
-    color: var(--accentColor);
-    font-size: 1rem;
-    font-weight: bold;
-    line-height: 1.25;
-    display: block;
-    font-family: var(--font);
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
+  color: var(--accentColor);
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.25;
+  display: block;
+  font-family: var(--font);
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
 }
 
 .section-title {
   max-width: 675px;
-  margin: 26px auto 12px;
-  padding: 0 10px;
-
+  margin: 28px auto 12px;
+  padding: 0 14px;
   display: flex;
   align-items: center;
   gap: 12px;
-
   color: rgba(255,255,255,0.9);
   font-size: 0.9rem;
   font-weight: 700;
@@ -78,10 +86,9 @@ body {
   -webkit-backdrop-filter: blur(6px);
 }
 
-
 #disclaimer {
   margin: 22px auto 0;
-  padding-top: 14px;
+  padding: 14px 16px 0;
   max-width: 675px;
   border-top: 1px solid rgba(255,255,255,0.12);
   color: rgba(255, 255, 255, 0.55);
@@ -94,77 +101,123 @@ body {
 
 .links {
   max-width: 675px;
-  margin: 14px auto 22px;
-  padding: 14px 12px;      /* 터치감 ↑ */
+  margin: 12px auto 22px;
+  padding: 0 14px;
   line-height: 1.2;
-  word-break: keep-all;     /* 한국어 줄바꿈 더 자연스럽게 */
+  word-break: keep-all;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .link {
-    position: relative;
-    background-color: transparent;
-    color: var(--accentColor);
-    border: solid var(--accentColor) 2px;
-    border-radius: 10px;
-    font-size: 1rem;
-
-    display: flex;
-    align-items: center;        /* 세로 가운데 */
-    justify-content: center;    /* 🔥 가로 가운데 */
-
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-
-    gap: 10px;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
+  position: relative;
+  color: var(--accentColor);
+  background: var(--cardBg);
+  border: 1px solid var(--cardBorder);
+  border-radius: 16px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;   /* 중앙정렬 제거 */
+  gap: 12px;
+  min-height: 68px;
+  margin: 0;
+  padding: 10px 14px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-
-/* 썸네일 */
-.link-thumb {
-  width: 46px;
-  height: 46px;
-  border-radius: 8px;
-  object-fit: cover;
-  flex-shrink: 0;   /* 줄어들지 않게 */
-}
-
-/* 텍스트 말줄임 */
-.link-text {
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.link:hover {
+  transform: translateY(-2px);
+  background: var(--cardHover);
+  border-color: rgba(255,255,255,0.24);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
 }
 
 .link:active {
-    background-color: var(--accentColor);
-    color: var(--bgColor);
+  transform: scale(0.985);
+  background-color: rgba(255,255,255,0.16);
+  color: var(--accentColor);
 }
 
-#hashtag {
-    position: relative;
-    padding-bottom: 20px;
-    color: var(--accentColor);
-    font-size: 1rem;
-    display: block;
-    font-family: var(--font);
-    width: 100%;
-    text-align: center;
+/* 썸네일 */
+.link-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  display: block;
+  background: var(--thumbBg);
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
-    /*  animation   */
-    overflow: hidden;
-    background: linear-gradient(90deg, var(--bgColor), var(--accentColor), var(--bgColor));
-    background-repeat: no-repeat;
-    background-size: 80%;
-    animation: animate 3s linear var(--delay) infinite;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+/* 텍스트 */
+.link-text {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* 오른쪽 화살표 */
+.link::after {
+  content: "›";
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* 모바일 */
+@media (max-width: 480px) {
+  .section-title {
+    padding: 0 12px;
+    margin: 24px auto 10px;
+  }
+
+  .links {
+    padding: 0 12px;
+    gap: 9px;
+  }
+
+  .link {
+    min-height: 64px;
+    padding: 10px 12px;
+    gap: 11px;
+    border-radius: 14px;
+  }
+
+  .link-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  .link-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* 애니메이션 */
+@keyframes transitionAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
