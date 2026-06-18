@@ -16,6 +16,13 @@
     "home": "🏡 우리집 감성템"
   },
   "products": [
+     {
+      "section": "benefit",
+      "title": "퍼실 라벤더젤 맥스",
+      "href": "https://www.coupang.com/vp/products/8971726601",
+      "image": "images/persil.png",
+      "alt": "퍼실 라벤더젤 맥스"
+    },
     {
       "section": "benefit",
       "title": "정리습관 추천인 링크",
