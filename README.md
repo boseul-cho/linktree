@@ -1,66 +1,35 @@
-<h1 align="center">🌲 Linktree</h1>
-<h3 align="center">Simple site to group all my profiles on social networks in one place.</h3>
+# Boseul Cho Linktree
 
-<p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/johnggli/linktree?color=04D361&labelColor=000000">
-  
-  <a href="https://www.linkedin.com/in/johnggli/">
-    <img alt="Made by" src="https://img.shields.io/static/v1?label=made%20by&message=John%20Emerson&color=04D361&labelColor=000000">
-  </a>
-  
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/johnggli/linktree?color=04D361&labelColor=000000">
-  
-  <a href="https://github.com/johnggli/linktree/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/johnggli/linktree?color=04D361&labelColor=000000">
-  </a>
-</p>
+정적 HTML/CSS/JavaScript로 만든 개인 링크 페이지입니다. Vercel에서 별도 빌드 명령 없이 배포됩니다.
 
-<p align="center">
-  <a href="#-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-license">License</a>
-</p>
+## Vercel 배포
 
----
+1. GitHub 저장소를 Vercel에 Import합니다.
+2. **Framework Preset**은 `Other`, **Build Command**와 **Output Directory**는 비워 둡니다.
+3. Deploy합니다. 이후 `main` 브랜치에 push할 때마다 Production 배포가 자동으로 갱신됩니다.
+4. 커스텀 도메인을 사용할 경우 Vercel의 **Settings → Domains**에서 연결하고, DNS 안내에 따라 레코드를 설정합니다.
 
-<p align="center">
-  <img alt="screenshot" src="screenshot.png">
-</p>
+## Vercel Web Analytics
 
----
+이 프로젝트는 순수 정적 사이트라 패키지를 설치하지 않습니다.
 
-## 💡 About the project
+1. 첫 배포 후 Vercel 프로젝트의 **Analytics** 메뉴에서 **Enable**을 누릅니다.
+2. Vercel이 제공하는 정적 HTML용 스니펫에서 `/<unique-path>/script.js` 경로를 확인합니다.
+3. `index.html`의 `</body>` 바로 앞에 아래 코드를 추가하고 다시 배포합니다. `<unique-path>`는 2단계의 실제 값으로 바꿉니다.
 
-This is an open source project that serves as a free alternative to the Linktree website.
-- [Demo](https://johnggli.github.io/linktree)
-
-## 🚀 Getting started
-
-If you installed git you can clone the code to your machine, or download a ZIP of all the files directly.
-[Download the ZIP from this location](https://github.com/johnggli/linktree/archive/master.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
-```bash
-git clone https://github.com/johnggli/linktree
+```html
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/<unique-path>/script.js"></script>
 ```
-- Once the files are on your machine, open the _linktree_ folder in [Visual Studio Code](https://code.visualstudio.com/).
-- With the files open in Visual Studio Code, press the **Go Live** button at the bottom of the window to launch the files with [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
-- Change the profile image and texts in the `index.html` file.
-- Change the colors and fonts in the `style.css` file.
-- To change the background, go to the `style.css` file on line 17, uncomment the code snippet and change the url to whatever image you want.
 
-## 🤔 How to contribute
+배포 후 Vercel Analytics 화면에서 방문·유입 경로·기기 정보를 확인할 수 있습니다. Analytics 활성화 뒤 재배포해야 전용 경로가 정상 작동합니다.
 
-- Fork this repository;
-- Create a branch with your feature: `git checkout -b my-feature`;
-- Commit your changes: `git commit -m "feat: my new feature"`;
-- Push to your branch: `git push origin my-feature`.
+## 함께 활성화할 항목
 
-Once your pull request has been merged, you can delete your branch.
+- **Speed Insights**: 실제 방문자의 Core Web Vitals를 확인합니다. Analytics와 같은 방식으로 Vercel 대시보드에서 활성화하세요.
+- **커스텀 도메인**: 프로필 링크에 기억하기 쉬운 주소를 쓰고, `www`와 루트 도메인 중 하나를 기본 도메인으로 지정하세요.
+- **소셜 미리보기**: 기본 Open Graph 메타 태그와 미리보기 이미지는 포함되어 있습니다. 실제 도메인을 연결한 뒤 카카오톡·인스타그램 등에서 공유 미리보기를 확인하세요.
 
-## 📝 License
-
-This project is under the MIT license. See the [LICENSE](LICENSE.md) file for more details.
-
----
-
-Made with ❤️ by John Emerson :wave: [Get in touch](https://johnggli.github.io/linktree)
+`vercel.json`에는 보안 응답 헤더와 이미지 장기 캐시가 설정되어 있습니다.
