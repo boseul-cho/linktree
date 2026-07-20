@@ -4,14 +4,15 @@ function setupThemeToggle() {
   const options = document.querySelectorAll(".theme-option");
   const switcher = document.querySelector(".theme-switcher");
   const themeColor = document.getElementById("themeColor");
-  const swipeOverlay = document.getElementById("themeSwipeOverlay");
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const themePositions = { auto: "3px", light: "35px", dark: "67px" };
 
   const applyThemeMode = (mode, shouldPersist = false) => {
     const theme = mode === "auto" ? (systemTheme.matches ? "dark" : "light") : mode;
     document.documentElement.dataset.themeMode = mode;
     document.documentElement.dataset.theme = theme;
     if (shouldPersist) localStorage.setItem(themeStorageKey, mode);
+    if (switcher) switcher.style.setProperty("--theme-position", themePositions[mode]);
     if (themeColor) themeColor.content = theme === "dark" ? "#25221f" : "#f6f1e9";
     options.forEach((option) => {
       option.setAttribute("aria-pressed", String(option.dataset.themeMode === mode));
@@ -20,6 +21,12 @@ function setupThemeToggle() {
 
   applyThemeMode(document.documentElement.dataset.themeMode || "auto");
   options.forEach((option) => option.addEventListener("click", () => {
+    if (option.dataset.themeMode !== document.documentElement.dataset.themeMode && switcher) {
+      switcher.classList.remove("is-moving");
+      void switcher.offsetWidth;
+      switcher.classList.add("is-moving");
+      window.setTimeout(() => switcher.classList.remove("is-moving"), 380);
+    }
     applyThemeMode(option.dataset.themeMode, true);
   }));
   systemTheme.addEventListener("change", () => {
@@ -33,55 +40,6 @@ function setupThemeToggle() {
   updateSwitcherVisibility();
   window.addEventListener("scroll", updateSwitcherVisibility, { passive: true });
 
-  let swipeStart = null;
-  let swipeDeltaX = 0;
-  let isHorizontalSwipe = false;
-
-  const resetSwipePreview = () => {
-    swipeOverlay?.classList.remove("is-active");
-    if (swipeOverlay) {
-      swipeOverlay.style.removeProperty("--swipe-progress");
-      swipeOverlay.style.removeProperty("--swipe-translate");
-    }
-  };
-
-  document.addEventListener("touchstart", (event) => {
-    if (event.target.closest("a, button, input")) return;
-    const touch = event.touches[0];
-    swipeStart = { x: touch.clientX, y: touch.clientY };
-    swipeDeltaX = 0;
-    isHorizontalSwipe = false;
-  }, { passive: true });
-
-  document.addEventListener("touchmove", (event) => {
-    if (!swipeStart) return;
-    const touch = event.touches[0];
-    const deltaY = touch.clientY - swipeStart.y;
-    swipeDeltaX = touch.clientX - swipeStart.x;
-
-    if (!isHorizontalSwipe && Math.abs(swipeDeltaX) > 14 && Math.abs(swipeDeltaX) > Math.abs(deltaY) * 1.3) {
-      isHorizontalSwipe = true;
-    }
-    if (!isHorizontalSwipe) return;
-
-    const targetTheme = swipeDeltaX < 0 ? "dark" : "light";
-    const progress = Math.min(Math.abs(swipeDeltaX) / 150, 1);
-    swipeOverlay.dataset.targetTheme = targetTheme;
-    swipeOverlay.style.setProperty("--swipe-progress", progress);
-    swipeOverlay.style.setProperty("--swipe-translate", `${targetTheme === "dark" ? -70 + progress * 70 : 70 - progress * 70}%`);
-    swipeOverlay.classList.add("is-active");
-  }, { passive: true });
-
-  const finishSwipe = () => {
-    if (isHorizontalSwipe && Math.abs(swipeDeltaX) >= 72) {
-      applyThemeMode(swipeDeltaX < 0 ? "dark" : "light", true);
-    }
-    resetSwipePreview();
-    swipeStart = null;
-  };
-
-  document.addEventListener("touchend", finishSwipe, { passive: true });
-  document.addEventListener("touchcancel", finishSwipe, { passive: true });
 }
 
 async function loadProducts() {
