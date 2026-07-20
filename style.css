@@ -169,6 +169,86 @@ body::after {
   object-fit: contain;
 }
 
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 675px;
+  margin: 27px auto 0;
+  padding: 0 20px;
+}
+
+.search-icon {
+  position: absolute;
+  z-index: 1;
+  left: 34px;
+  color: var(--sage);
+  font-family: Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1;
+  transform: rotate(-18deg);
+}
+
+.search-form input {
+  width: 100%;
+  height: 48px;
+  padding: 0 44px 0 42px;
+  color: var(--ink);
+  border: 1px solid rgba(135, 148, 128, 0.32);
+  border-radius: 14px;
+  background: rgba(255, 253, 249, 0.58);
+  box-shadow: 0 4px 12px rgba(86, 65, 46, 0.04);
+  font: inherit;
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.search-form input::placeholder { color: rgba(104, 96, 84, 0.64); }
+
+.search-form input:focus {
+  border-color: var(--sage);
+  background: var(--card);
+  box-shadow: 0 0 0 4px rgba(135, 148, 128, 0.12);
+}
+
+.clear-search {
+  position: absolute;
+  right: 30px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  color: var(--muted);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(135, 148, 128, 0.12);
+  cursor: pointer;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.search-summary {
+  max-width: 675px;
+  margin: 9px auto 0;
+  padding: 0 20px;
+  color: var(--muted);
+  font-size: 0.69rem;
+  letter-spacing: 0.01em;
+}
+
+#productSections { margin-top: 30px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .links {
   display: flex;
   flex-direction: column;
@@ -222,9 +302,16 @@ body::after {
   background: var(--sage-soft);
 }
 
+.link-content {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .link-text {
   display: -webkit-box;
-  flex: 1;
   min-width: 0;
   overflow: hidden;
   color: var(--ink);
@@ -234,6 +321,31 @@ body::after {
   text-align: left;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.link-note {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.73rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.link-index {
+  display: grid;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: var(--terracotta);
+  border: 1px solid rgba(189, 117, 92, 0.25);
+  border-radius: 50%;
+  background: rgba(250, 237, 229, 0.72);
+  font-size: 0.71rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .link::after {
@@ -278,12 +390,30 @@ body::after {
 
 .link:focus-visible,
 .logo-links a:focus-visible,
-#profilePicture:focus-visible {
+#profilePicture:focus-visible,
+.clear-search:focus-visible {
   outline: 3px solid rgba(189, 117, 92, 0.35);
   outline-offset: 3px;
 }
 
 .link:active { transform: scale(0.99); }
+
+.empty-search {
+  display: flex;
+  max-width: 635px;
+  min-height: 120px;
+  margin: 36px auto 0;
+  padding: 0 20px;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--muted);
+  border: 1px dashed rgba(135, 148, 128, 0.36);
+  border-radius: 14px;
+  background: rgba(255, 253, 249, 0.38);
+  text-align: center;
+}
+
+.empty-search small { margin-top: 5px; font-size: 0.74rem; }
 
 @media (max-width: 480px) {
   body { padding-bottom: 32px; }
@@ -294,9 +424,17 @@ body::after {
 
   #profileIntro { font-size: 0.78rem; }
 
-  .section-title { margin-top: 35px; padding: 0 14px; font-size: 1rem; }
-
   .logo-links { padding: 0 14px; }
+
+  .search-form { margin-top: 24px; padding: 0 14px; }
+
+  .search-icon { left: 27px; }
+
+  .search-summary { padding: 0 14px; }
+
+  #productSections { margin-top: 24px; }
+
+  .clear-search { right: 24px; }
 
   .links { gap: 8px; padding: 0 14px; }
 
@@ -305,6 +443,10 @@ body::after {
   .link-thumb { width: 46px; height: 46px; }
 
   .link-text { font-size: 0.88rem; }
+
+  .link-note { font-size: 0.68rem; }
+
+  .link-index { width: 26px; height: 26px; font-size: 0.67rem; }
 
   #disclaimer { margin-top: 34px; padding: 17px 14px 0; font-size: 0.68rem; }
 }

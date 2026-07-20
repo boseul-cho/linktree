@@ -11,15 +11,15 @@
     <meta property="og:url" content="https://linktree-eta-nine.vercel.app/" />
     <meta property="og:title" content="보슬의 육아·생활 큐레이션" />
     <meta property="og:description" content="보슬의 채널과 육아·생활 추천 상품을 한곳에서 만나보세요." />
-    <meta property="og:image" content="https://linktree-eta-nine.vercel.app/images/og-cover.png" />
-    <meta property="og:image:secure_url" content="https://linktree-eta-nine.vercel.app/images/og-cover.png" />
+    <meta property="og:image" content="https://linktree-eta-nine.vercel.app/images/og-cover-warm.png" />
+    <meta property="og:image:secure_url" content="https://linktree-eta-nine.vercel.app/images/og-cover-warm.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1729" />
-    <meta property="og:image:height" content="910" />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="보슬의 육아·생활 큐레이션" />
     <meta name="twitter:description" content="보슬의 채널과 육아·생활 추천 상품을 한곳에서 만나보세요." />
-    <meta name="twitter:image" content="https://linktree-eta-nine.vercel.app/images/og-cover.png" />
+    <meta name="twitter:image" content="https://linktree-eta-nine.vercel.app/images/og-cover-warm.png" />
     <title>Boseul Cho | Linktree</title>
     <link rel="manifest" href="/site.webmanifest" />
     <link
@@ -64,6 +64,20 @@
         <img src="images/ohouse-icon.ico" alt="오늘의집" class="channel-logo" />
       </a>
     </div>
+
+    <form class="search-form" role="search" onsubmit="return false;">
+      <label class="sr-only" for="productSearch">아이템 검색</label>
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input
+        id="productSearch"
+        type="text"
+        inputmode="search"
+        placeholder="아이템명 · 추천 이유 · 번호로 찾아보세요"
+        autocomplete="off"
+      />
+      <button id="clearSearch" class="clear-search" type="button" aria-label="검색어 지우기" hidden>×</button>
+    </form>
+    <p id="searchSummary" class="search-summary" aria-live="polite">17개의 큐레이션 아이템</p>
 
     <main id="productSections"></main>
 
