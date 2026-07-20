@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="보슬의 채널과 육아·생활 추천 상품을 한곳에서 만나보세요." />
-    <meta name="theme-color" content="#090a0f" />
+    <meta id="themeColor" name="theme-color" content="#f6f1e9" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:site_name" content="Boseul Cho" />
@@ -31,6 +31,14 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     />
+    <script>
+      (() => {
+        const savedMode = localStorage.getItem("boseul-theme") || "auto";
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.themeMode = savedMode;
+        document.documentElement.dataset.theme = savedMode === "auto" ? systemTheme : savedMode;
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -40,6 +48,26 @@
       <div id="stars2"></div>
       <div id="stars3"></div>
     </section>
+
+    <div class="theme-switcher" role="group" aria-label="테마 선택">
+      <button class="theme-option" type="button" data-theme-mode="auto" aria-label="시스템 설정 자동 적용">
+        <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+          <path d="M8 20h8M12 16v4"></path>
+        </svg>
+      </button>
+      <button class="theme-option" type="button" data-theme-mode="light" aria-label="라이트 모드">
+        <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+      </button>
+      <button class="theme-option" type="button" data-theme-mode="dark" aria-label="다크 모드">
+        <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path>
+        </svg>
+      </button>
+    </div>
 
     <a id="profilePicture" href="https://www.instagram.com/boseul_cho" target="_blank" rel="noopener noreferrer">
       <img

@@ -1,3 +1,38 @@
+const themeStorageKey = "boseul-theme";
+
+function setupThemeToggle() {
+  const options = document.querySelectorAll(".theme-option");
+  const switcher = document.querySelector(".theme-switcher");
+  const themeColor = document.getElementById("themeColor");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const applyThemeMode = (mode, shouldPersist = false) => {
+    const theme = mode === "auto" ? (systemTheme.matches ? "dark" : "light") : mode;
+    document.documentElement.dataset.themeMode = mode;
+    document.documentElement.dataset.theme = theme;
+    if (shouldPersist) localStorage.setItem(themeStorageKey, mode);
+    if (themeColor) themeColor.content = theme === "dark" ? "#25221f" : "#f6f1e9";
+    options.forEach((option) => {
+      option.setAttribute("aria-pressed", String(option.dataset.themeMode === mode));
+    });
+  };
+
+  applyThemeMode(document.documentElement.dataset.themeMode || "auto");
+  options.forEach((option) => option.addEventListener("click", () => {
+    applyThemeMode(option.dataset.themeMode, true);
+  }));
+  systemTheme.addEventListener("change", () => {
+    if (document.documentElement.dataset.themeMode === "auto") applyThemeMode("auto");
+  });
+
+  const updateSwitcherVisibility = () => {
+    switcher?.classList.toggle("is-hidden", window.scrollY > 180);
+  };
+
+  updateSwitcherVisibility();
+  window.addEventListener("scroll", updateSwitcherVisibility, { passive: true });
+}
+
 async function loadProducts() {
   const container = document.getElementById("productSections");
   const searchInput = document.getElementById("productSearch");
@@ -101,4 +136,7 @@ async function loadProducts() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", loadProducts);
+document.addEventListener("DOMContentLoaded", () => {
+  setupThemeToggle();
+  loadProducts();
+});
