@@ -25,8 +25,11 @@ async function loadProducts() {
       const matches = (item) => {
         if (!normalizedQuery) return true;
 
+        if (/^\d+$/.test(normalizedQuery)) {
+          return String(item.number) === normalizedQuery;
+        }
+
         const searchableText = [
-          item.number,
           item.title,
           item.note,
         ]
