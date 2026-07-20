@@ -1,0 +1,22 @@
+{
+  "name": "linktree",
+  "version": "1.0.0",
+  "description": "Boseul Cho's Linktree with Vercel Speed Insights",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/app.js --bundle --outfile=app.js --format=esm --minify",
+    "dev": "esbuild src/app.js --bundle --outfile=app.js --format=esm --watch",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "linktree"
+  ],
+  "author": "Boseul Cho",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}
