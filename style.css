@@ -154,6 +154,46 @@ body::after {
 
 .animated-background { display: none; }
 
+.theme-swipe-overlay {
+  position: fixed;
+  z-index: 3;
+  top: -15vh;
+  left: -15vw;
+  width: 130vw;
+  height: 130vh;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 48% 52% 42% 58% / 45% 45% 55% 55%;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.38), transparent 23%),
+    radial-gradient(circle at 79% 72%, rgba(170, 184, 162, 0.36), transparent 31%),
+    rgba(37, 34, 31, 0.82);
+  filter: blur(10px) saturate(120%);
+  transform: translateX(-70%) rotate(-8deg) scale(1.08);
+  transition: opacity 0.16s ease, transform 0.18s ease;
+}
+
+.theme-swipe-overlay[data-target-theme="light"] {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.86), transparent 23%),
+    radial-gradient(circle at 79% 72%, rgba(218, 228, 213, 0.52), transparent 31%),
+    rgba(246, 241, 233, 0.86);
+  transform: translateX(70%) rotate(8deg) scale(1.08);
+}
+
+.theme-swipe-overlay.is-active {
+  opacity: calc(var(--swipe-progress) * 0.9);
+}
+
+.theme-swipe-overlay.is-active[data-target-theme="dark"] {
+  transform: translateX(var(--swipe-translate)) rotate(-8deg) scale(1.08);
+}
+
+.theme-swipe-overlay.is-active[data-target-theme="light"] {
+  transform: translateX(var(--swipe-translate)) rotate(8deg) scale(1.08);
+}
+
 #profilePicture {
   position: relative;
   z-index: 1;
