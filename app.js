@@ -84,7 +84,7 @@ async function loadProducts() {
               <span class="link-index" aria-label="아이템 번호 ${item.number}">${item.number}</span>
               <img
                 src="${item.image}"
-                class="link-thumb"
+                class="link-thumb${item.imageFit === "contain" ? " link-thumb-contain" : ""}"
                 alt="${item.alt || item.title}"
                 loading="lazy"
               />

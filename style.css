@@ -436,6 +436,11 @@ html[data-theme="dark"] .search-form input::placeholder { color: #bdb1a2; }
   background: var(--sage-soft);
 }
 
+.link-thumb-contain {
+  padding: 3px;
+  object-fit: contain;
+}
+
 .link-content {
   display: flex;
   flex: 1;

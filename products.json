@@ -1,6 +1,31 @@
 {
   "products": [
-     {
+    {
+      "number": 20,
+      "title": "키디런",
+      "href": "https://kidi.eland.kr/nmo3jb",
+      "image": "images/kidirun.png",
+      "imageFit": "contain",
+      "alt": "키디런",
+      "note": "아이와 신나게 뛰어놀 때"
+    },
+    {
+      "number": 19,
+      "title": "키디키디 × 디자인스킨",
+      "href": "https://kidi.eland.kr/jc3vokx",
+      "image": "images/designskin-home.jpg",
+      "alt": "키디키디 × 디자인스킨",
+      "note": "아이 방 꾸미기 아이템을 찾을 때"
+    },
+    {
+      "number": 18,
+      "title": "쿠첸 제로핏 음식물처리기",
+      "href": "https://www.cuchenmall.co.kr/?linkD=R8P83804a",
+      "image": "images/cuchen-zerofit.png",
+      "alt": "쿠첸 제로핏 음식물처리기",
+      "note": "주방을 깔끔하게 관리할 때"
+    },
+    {
       "number": 17,
       "title": "퍼실 딥클린 라벤더젤 맥스(드럼용)",
       "href": "https://www.coupang.com/vp/products/8971726601",
