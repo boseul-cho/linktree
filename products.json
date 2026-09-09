@@ -1,6 +1,14 @@
 {
   "products": [
     {
+      "number": 21,
+      "title": "123베이비페어",
+      "href": "https://kidi.eland.kr/3emdgg",
+      "image": "https://item.elandrs.com/r/image/display/2026-08-26/69c047f3-c129-4114-a32b-da20b9f9afed.jpeg",
+      "alt": "123베이비페어",
+      "note": "단 5일 최저가 마켓"
+    },
+    {
       "number": 20,
       "title": "키디런",
       "href": "https://kidi.eland.kr/nmo3jb",
