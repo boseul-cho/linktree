@@ -1,6 +1,15 @@
 {
   "products": [
     {
+      "number": 22,
+      "title": "추석빔 in 키디키디",
+      "href": "https://kidi.eland.kr/f9ezkve",
+      "image": "images/kidikidi-logo.png",
+      "imageFit": "contain",
+      "alt": "키디키디 로고",
+      "note": "추석빔 준비는 키디키디에서"
+    },
+    {
       "number": 21,
       "title": "123베이비페어",
       "href": "https://kidi.eland.kr/3emdgg",
