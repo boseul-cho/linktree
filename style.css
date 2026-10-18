@@ -303,6 +303,10 @@ html[data-theme="dark"] .search-form input::placeholder { color: #bdb1a2; }
   object-fit: contain;
 }
 
+.channel-logo-clip {
+  border-radius: 5px;
+}
+
 .search-form {
   position: relative;
   display: flex;
