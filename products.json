@@ -1,6 +1,15 @@
 {
   "products": [
     {
+      "number": 25,
+      "title": "단미 핫군밤 듀얼 손난로",
+      "href": "https://naver.me/xHEUKNLL",
+      "image": "images/danmi-hotgunbam.png",
+      "imageFit": "contain",
+      "alt": "단미 핫군밤 손난로",
+      "note": "손은 따뜻하게, 보조배터리는 든든하게"
+    },
+    {
       "number": 24,
       "title": "KiDiRUN 신상 발매 릴레이 오픈런",
       "href": "https://kidi.eland.kr/7kh4g8q",
