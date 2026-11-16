@@ -1,12 +1,20 @@
 {
   "products": [
     {
-      "number": 26,
-      "title": "11월 키디키디 123 베이비페어",
-      "href": "https://kidi.eland.kr/30s35eg",
-      "image": "images/november-123-babyfair.png",
-      "alt": "11월 123 베이비페어",
-      "note": "단 3일 최저가 마켓"
+      "number": 27,
+      "title": "설로인키즈 첫 가입 혜택받고 가입하기",
+      "href": "https://buly.kr/9MTY2om",
+      "image": "https://cdn.sirloin.co.kr/images/exhibition/6668e74f1f77c2188ff6e266/%EC%84%A4%EB%A1%9C%EC%9D%B8%20%ED%82%A4%EC%A6%88%2010%EC%9B%94%20%EA%B8%B0%ED%9A%8D%EC%A0%84_%20%EA%B8%B0%ED%9A%8D%EC%A0%84%20%EB%B0%B0%EB%84%88.jpg",
+      "alt": "설로인 키즈",
+      "note": "신규 가입하고 한우 우둔 2구 무료 체험하기"
+    },
+    {
+      "number": 28,
+      "title": "유키두 엉금엉금 멜로디 달팽이",
+      "href": "https://naver.me/xsZ8lOb4",
+      "image": "https://item.elandrs.com/upload/prd/orgimg/023/2111831023_0000079.jpg?h=&q=100&w=750",
+      "alt": "유키두 엉금엉금 멜로디 달팽이",
+      "note": "움직임과 멜로디로 채우는 놀이 시간"
     },
     {
       "number": 25,
@@ -16,6 +24,14 @@
       "imageFit": "contain",
       "alt": "단미 핫군밤 손난로",
       "note": "손은 따뜻하게, 보조배터리는 든든하게"
+    },
+    {
+      "number": 26,
+      "title": "11월 키디키디 123 베이비페어",
+      "href": "https://kidi.eland.kr/30s35eg",
+      "image": "images/november-123-babyfair.png",
+      "alt": "11월 123 베이비페어",
+      "note": "단 3일 최저가 마켓"
     },
     {
       "number": 24,
